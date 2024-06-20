@@ -1,0 +1,31 @@
+{
+    "name": "mr-vaco/orchid-lang-switch-plugin",
+    "description": "",
+    "keywords": [
+        "orchid language switch",
+        "orchid lang switch",
+        "orchid locale switch"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "orchid/platform": "^14.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "MrVaco\\LangSwitch\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MrVaco\\LangSwitch\\LangSwitchServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
