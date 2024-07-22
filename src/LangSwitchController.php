@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace MrVaco\LangSwitch;
 
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Cache;
 use Orchid\Support\Facades\Toast;
 
 class LangSwitchController
@@ -21,8 +20,7 @@ class LangSwitchController
             return redirect()->back();
         }
 
-        $key = auth()->guard(config('platform.guard'))->id() . '.locale';
-        Cache::forever($key, $lang);
+        auth()->user()->update(['locale' => $lang]);
         app()->setLocale($lang);
 
         Toast::success(__('Localization changed'));

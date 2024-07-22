@@ -20,6 +20,7 @@ class LangSwitchServiceProvider extends OrchidServiceProvider
 
     public function router(): void
     {
+        // TODO: тут переписать - https://orchid.software/en/docs/packages/#define-routes
         if ($this->app->routesAreCached()) return;
 
         app('router')
@@ -37,5 +38,9 @@ class LangSwitchServiceProvider extends OrchidServiceProvider
         $this->publishes([
             __DIR__ . '/../config' => config_path(),
         ], 'plugin-config');
+
+        $this->publishes([
+            __DIR__ . '/../migrations' => database_path('migrations'),
+        ], 'plugin-migrations');
     }
 }
